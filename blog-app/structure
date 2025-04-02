@@ -1,0 +1,44 @@
+pages/
+│
+├── admin/
+│   ├── index.js             # Tableau de bord d'administration
+│   ├── groups.js            # Gestion des groupes
+│   └── users.js             # Gestion des utilisateurs
+│
+├── events/
+│   ├── index.js             # Liste des événements
+│   └── [event_id].js        # Détails d'un événement
+│
+├── groups/
+│   ├── index.js             # Liste des groupes
+│   └── [group_id]/
+│       ├── index.js         # Détails d'un groupe
+│       ├── chat.js          # Chat du groupe
+│       ├── events.js        # Événements du groupe
+│       └── posts/
+│           ├── create.js    # Créer un post dans le groupe
+│           └── [post_id].js # Détails d'un post
+│
+├── messages/
+│   ├── index.js             # Liste des messages privés
+│   └── [user_id].js         # Chat avec un utilisateur
+│
+├── posts/
+│   ├── create.js            # Créer un post
+│   ├── [post_id]/
+│       ├── index.js         # Détail d'un post
+│       ├── comments.js      # Commentaires d'un post
+│       └── edit.js          # Modifier un post
+│
+    -ui/utils.js, sidebar.js
+
+├── profile/
+│   ├── edit.js              # Modifier le profil
+│   └── [username].js        # Profil d'un utilisateur
+│
+─   ─ login.js
+├── search.js                # Recherche d'utilisateurs, groupes, posts
+├── notifications.js         # Notifications de l'utilisateur
+├── followers.js             # Liste des followers
+└── index.js 
+                    # Page d'accueil

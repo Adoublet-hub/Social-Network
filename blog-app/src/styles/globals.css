@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Variables de couleurs pour le mode clair et sombre */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* Utilise les variables pour le fond et le texte */
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Masquer les flèches du compteur sur Chrome, Safari, Edge et Opera */
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Masquer les flèches du compteur sur Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}

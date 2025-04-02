@@ -1,0 +1,44 @@
+S network/
+│
+├── frontend/          # Dossier pour le code frontend
+│   ├── public/        # Fichiers statiques (images, index.html, etc.)
+│   ├── src/           # Code source du frontend (JS, CSS, etc.)
+│   │   ├── components/  # Composants UI (boutons, menus, etc.)
+│   │   ├── pages/       # Pages principales (home, profil, etc.)
+│   │   ├── services/    # Services pour les appels API
+│   ├── package.json    # Fichier de configuration npm
+│   └── Dockerfile      # Dockerfile pour containeriser le frontend
+│
+├── backend/           # Dossier pour le code backend
+│   ├── pkg/
+│   │   ├── db/        # Gestion des migrations et accès à la BDD
+│   │   ├── models/    # Modèles pour représenter les tables de la BDD
+│   │   ├── handlers/  # Gestion des routes HTTP et WebSockets
+│   ├── server.go      # Point d’entrée de l’application backend
+│   └── Dockerfile     # Dockerfile pour containeriser le backend
+│
+├── docker-compose.yml  # Fichier pour coordonner le backend et le frontend
+└── README.md           # Documentation du projet
+
+curl -X POST http://localhost:8080/register \
+     -F "data={\"username\":\"testuser\",\"password_hash\":\"password123\",\"email\":\"test@example.com\",\"first_name\":\"John\",\"last_name\":\"Doe\",\"gender\":\"Homme\",\"date_of_birth\":\"1990-01-01\",\"age\":30,\"role\":\"user\",\"phone_number\":\"1234567890\",\"address\":\"123 Street\",\"is_private\":false}"
+
+
+
+curl -X POST http://localhost:8080/login \
+     -d "identifier=testuser" \
+     -d "password=password123"
+
+
+curl -X POST http://localhost:8080/logout 
+
+curl -v -X POST http://localhost:8080/create_post     -H "Content-Type: multipart/form-data"     -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNmRhNDkzNjQtNWMwNy00YjY0LTg2ZmEtMGRhMzVjMjUzMzMyIiwidXNlcm5hbWUiOiIiLCJleHAiOjE3MjkyNjQ0MjN9.k-5YeELiUhFYGcrbX1CzhQ37azNZbtCBlEvLBcrEY-Y"     -F "data={\"title\":\"My Post Title\", \"content\":\"This is the content of the post.\", \"visibility\":\"public\"}"
+
+
+curl -v -X GET http://localhost:8080/list_post \
+    -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNmRhNDkzNjQtNWMwNy00YjY0LTg2ZmEtMGRhMzVjMjUzMzMyIiwidXNlcm5hbWUiOiIiLCJleHAiOjE3MjkyNjc4ODJ9.vwfHZwwZRR_GoKpFFVl9Pbp8MxEmi1r6PrF6Sfu8f8o"
+
+
+curl -X GET "http://127.0.0.1:8079/groups/37a6335f-ebc2-49cc-8b50-828c7b86a8cc" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer 6da49364-5c07-4b64-86fa-0da35c253332"
